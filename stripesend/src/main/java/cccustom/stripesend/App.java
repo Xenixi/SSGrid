@@ -213,7 +213,7 @@ public class App {
 					/// Send emails to both client and self
 					// switch this to new email once I create it.
 					// ********EDITING AREA
-					String emailAdmin = "cambridgecraftofficial@xenixi.com",
+					String emailAdmin = "testing.cambridgecraftofficial@xenixi.com",
 							emailClient = (String) allCusts.get(id).get("email"), fromName = "CambridgeCraft";
 
 					ArrayList<String> adminEmails = new ArrayList<String>();
@@ -240,7 +240,7 @@ public class App {
 					// sending to client
 					Email from = new Email(emailAdmin);
 					from.setName(fromName);
-					String subject = "CambridgeCraft Verification Code";
+					String subject = "[TESTMODE] CambridgeCraft Verification Code";
 					Email to = new Email(emailClient);
 					StringBuilder sb2 = new StringBuilder();
 
@@ -248,11 +248,11 @@ public class App {
 						sb2.append(" | ");
 						sb2.append(adminEmail);
 					}
-					Content emailContent = new Content("text/plain", "Thanks for your donation! \nPlease contact "
+					Content emailContent = new Content("text/plain", "[TESTMODE] Thanks for your donation! \nPlease contact "
 							+ adminEmails.get(0)
 							+ " with your email, username (Java/Realm/Both), and the security code below:\n \nDon't share this code with anyone except the admin email listed above or other certified admin emails: "
 							+ allCusts.get(id).get("verify")
-							+ "\n \n \n \nOfficially Affiliated with xenixi.com | Additional Admin Emails: \n"
+							+ "\n \n \n \nOfficially Affiliated with xenixi.com | Additional Admin Emails: \n[TESTMODE]"
 							+ sb2.toString());
 
 					// Mail mail = new Mail(from, subject, to, emailContent);
@@ -274,15 +274,15 @@ public class App {
 					for (String adminEmailListed : adminEmails) {
 						Email aFrom = new Email(emailAdmin);
 						aFrom.setName("CCraft Admins");
-						String aSubject = "A new user verifcation has been generated.";
+						String aSubject = "[TESTMODE] A new user verifcation has been generated.";
 						Email aTo = new Email(adminEmailListed);
-						Content aEmailContent = new Content("text/plain", "A new donation has been made:\nEmail: '"
+						Content aEmailContent = new Content("text/plain", "[TESTMODE] A new donation has been made:\nEmail: '"
 								+ allCusts.get(id).get("email") + "'\nCustomerID: '" + allCusts.get(id).get("id")
 								+ "'\nItem: '" + allCusts.get(id).get("item") + "'\nVerifyCode: '"
 								+ allCusts.get(id).get("verify") + "'\nAmount: '$" + allCusts.get(id).get("amount")
 								+ "'\n \nThank you.\n\nThis email is intended to be received by CambridgeCraft administrators only. If you have received this email by mistake, report immediately to an administrator. YOU ARE '"
 								+ adminEmailListed
-								+ "' \n \n \nOfficially Affiliated with xenixi.com | Admin Emails: \n"
+								+ "' \n \n \nOfficially Affiliated with xenixi.com | Admin Emails: \n[TESTMODE]"
 								+ sb2.toString());
 						Mail aMail = new Mail(aFrom, aSubject, aTo, aEmailContent);
 
